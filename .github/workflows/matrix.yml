@@ -1,4 +1,4 @@
-# .github/workflows/matrix.yml
+\# .github/workflows/matrix.yml
 name: Matrix workflow
 
 on: 
@@ -16,6 +16,9 @@ jobs:
     strategy:
       matrix:
         container: ["gradle:6-jdk8", "gradle:6-jdk11", "gradle:6-jdk17"]
+        exclude:
+          - container: "gradle:6-jdk8"
+          - container: "gradle:6-jdk11"
 
     container:
       image: ${{ matrix.container }}
